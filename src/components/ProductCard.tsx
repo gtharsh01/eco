@@ -69,6 +69,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Rating */}
         <div className="mt-1 flex justify-center items-center gap-1 text-yellow-500 text-sm">
           <span>★</span>
+          
           <span className="text-gray-800">{product.rating.toFixed(1)}</span>
           <span className="text-gray-500">({product.reviews})</span>
         </div>
