@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -14,16 +14,27 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
   };
   
   return (
-    <form onSubmit={handleSubmit} className="relative mb-8 max-w-md mx-auto">
-      <div className="relative">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="w-full py-2 pl-10 pr-4 rounded-lg bg-white border border-slate-200 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors"
-        />
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+    <form onSubmit={handleSubmit} className="relative max-w-2xl mx-auto">
+      <div className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+        <div className="relative bg-white rounded-2xl p-1">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search for amazing products..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full py-4 pl-14 pr-20 rounded-xl bg-white border-2 border-transparent focus:border-purple-300 focus:outline-none focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-slate-700 placeholder-slate-400"
+            />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-400" size={20} />
+            <button
+              type="submit"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <Sparkles size={16} />
+            </button>
+          </div>
+        </div>
       </div>
     </form>
   );
